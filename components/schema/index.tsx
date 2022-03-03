@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {NextPage} from "next";
-// import Layer from './layer'
-import {Stage} from "react-konva";
+import Layer from './layer'
+import { Stage } from "react-konva";
 import Konva from "konva";
 
 const Schema: NextPage = () => {
@@ -47,6 +47,7 @@ const Schema: NextPage = () => {
     return (
         <Stage
             x={stageX}
+            style={{border: '1px solid red'}}
             onWheel={(event: Konva.KonvaEventObject<WheelEvent>) => handleWheel(event)}
             onClick={(e: Konva.KonvaEventObject<MouseEvent>) => {
                 if (e.target.nodeType === 'Stage') {
@@ -57,9 +58,12 @@ const Schema: NextPage = () => {
             scaleX={stageScale}
             scaleY={stageScale}
             width={window.innerWidth - 50}
-            height={window.innerHeight - 250}
+            height={window.innerHeight - 100}
             draggable
         >
+            <Layer editableText={editableText} setEditable={(value: number) => {
+                setEditableText(value);
+            }} />
         </Stage>
     );
 }
