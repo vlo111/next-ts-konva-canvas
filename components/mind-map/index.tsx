@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {NextPage} from "next";
-import { Stage } from "react-konva";
+import {Stage} from "react-konva";
 import Konva from "konva";
-import Layer from '../schema/layer'
+import Layer from './layer'
 import ToolBar from './tool-bar'
 
 const Mapping: NextPage = () => {
@@ -16,7 +16,7 @@ const Mapping: NextPage = () => {
     const [editableText, setEditableText] = useState<number>(0);
 
     const handleWheel = (event: Konva.KonvaEventObject<WheelEvent>) => {
-        const { target, evt: { deltaY } } = event;
+        const {target, evt: {deltaY}} = event;
 
         const scaleBy = 1.02;
 
@@ -24,7 +24,7 @@ const Mapping: NextPage = () => {
 
         if (stage) {
 
-            const { x, y } = stage.getPointerPosition()!;
+            const {x, y} = stage.getPointerPosition()!;
 
             const oldScale = stage.scaleX();
 
@@ -47,27 +47,27 @@ const Mapping: NextPage = () => {
 
     return (
         <>
-            <ToolBar />
-        <Stage
-            x={stageX}
-            style={{border: '1px solid red'}}
-            onWheel={(event: Konva.KonvaEventObject<WheelEvent>) => handleWheel(event)}
-            onClick={(e: Konva.KonvaEventObject<MouseEvent>) => {
-                if (e.target.nodeType === 'Stage') {
-                    setEditableText(0);
-                }
-            }}
-            y={stageY}
-            scaleX={stageScale}
-            scaleY={stageScale}
-            width={window.innerWidth - 81}
-            height={window.innerHeight - 100}
-            draggable
-        >
-            <Layer editableText={editableText} setEditable={(value: number) => {
-                setEditableText(value);
-            }} />
-        </Stage>
+            <ToolBar/>
+            <Stage
+                x={stageX}
+                style={{border: '1px solid red'}}
+                onWheel={(event: Konva.KonvaEventObject<WheelEvent>) => handleWheel(event)}
+                onClick={(e: Konva.KonvaEventObject<MouseEvent>) => {
+                    if (e.target.nodeType === 'Stage') {
+                        setEditableText(0);
+                    }
+                }}
+                y={stageY}
+                scaleX={stageScale}
+                scaleY={stageScale}
+                width={window.innerWidth - 81}
+                height={window.innerHeight - 100}
+                draggable
+            >
+                <Layer editableText={editableText} setEditable={(value: number) => {
+                    setEditableText(value);
+                }}/>
+            </Stage>
         </>
     );
 }
