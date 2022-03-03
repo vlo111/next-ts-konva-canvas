@@ -1,8 +1,8 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import { Text } from "react-konva";
 import { Html } from "react-konva-utils";
 import { IEditable, IPosition, ICustomText } from "../../../../types/schema";
-import {NextPage} from "next";
+import { NextPage } from "next";
 
 type Editable = IEditable & IPosition & ICustomText;
 
