@@ -1,4 +1,17 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+pages/index.tsx
+1).
+const NoSSRComponent = dynamic(() => import("../components/mind-map"), {
+    ssr: false,
+});
+2).
+const NoSSRComponent = dynamic(() => import("../components/mind"), {
+    ssr: false,
+});
+3).
+const NoSSRComponent = dynamic(() => import("../components/mind-map/Home/HomePage"), {
+    ssr: false,
+});
 
 ## Getting Started
 
