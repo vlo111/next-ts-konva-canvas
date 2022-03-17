@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-pages/index.tsx
+
+## Choose project
+
+## pages/index.tsx
+
 1).
 const NoSSRComponent = dynamic(() => import("../components/mind-map"), {
     ssr: false,
