@@ -4,10 +4,12 @@ pages/index.tsx
 const NoSSRComponent = dynamic(() => import("../components/mind-map"), {
     ssr: false,
 });
+
 2).
 const NoSSRComponent = dynamic(() => import("../components/mind"), {
     ssr: false,
 });
+
 3).
 const NoSSRComponent = dynamic(() => import("../components/mind-map/Home/HomePage"), {
     ssr: false,
